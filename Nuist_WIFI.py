@@ -1,12 +1,12 @@
 import requests
 import time
+import base64
+
 #登录地址
 post_addr="http://a.nuist.edu.cn/index.php/index/login"
 
 #构造头部信息
 post_header={
-    'Host': 'a.nuist.edu.cn',
-    'User-Agent':'Mozilla/5.0 (X11; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0',
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'Accept-Language':'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
     'Accept-Encoding': 'gzip, deflate',
@@ -22,11 +22,12 @@ post_header={
 }
 
 #构造登录数据
-post_data={'domain':'NUIST',
+post_data={'domain':'ChinaNet',
            'enablemacauth':'0',
-           'password':'MTgzMzEw',
-           'username':'xxxxxxx'
+           'password':base64.b64encode("1233321"),
+           'username':'18685097861'
           }
 #发送post请求登录网页
 
 z=requests.post(post_addr,data=post_data,headers=post_header)
+print(z)
